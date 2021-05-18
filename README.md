@@ -1,8 +1,6 @@
 # DjaKafe - Front-End
-<p> Tugas Akhir Mata Kuliah Semantik Web </p> 
-<p> Teknik Informatika, Universitas Padjadjaran </p> 
+Tugas Akhir Mata Kuliah Semantik Web, Jurusan Teknik Informatika, Universitas Padjadjaran
 
-### Built With
-* React JS
-* Express JS
-* Jena Fuseki
+### Anggota Kelompok
+* Salma Alifia Shafira - 140810180058
+* Muhammad Risqullah Sudanta Gorao - 140810180066
