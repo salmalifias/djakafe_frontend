@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { Link } from 'react-router-dom'
-import logo from '../logo/logo.png'
-import more from '../logo/more.png'
+import { CustomInput, Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Link } from 'react-router-dom';
+import logo from '../logo/logo.png';
+import more from '../logo/more.png';
 
 function Navbar(props) {
     const {
@@ -10,7 +10,7 @@ function Navbar(props) {
         className
     } = props;
 
-    const [modal, setModal] = useState(false);
+    const [modal, setModal] = useState(true);
 
     const toggle = () => setModal(!modal);
     return (
@@ -53,13 +53,31 @@ function Navbar(props) {
             </nav>
             <div>
                 <Modal isOpen={modal} toggle={toggle} className={className}>
-                    <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+                    <ModalHeader toggle={toggle}>Pencarian Detail</ModalHeader>
                     <ModalBody>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </ModalBody>
+                        <FormGroup>
+                            <CustomInput type="checkbox" id="exampleCustomCheckbox1" label="Nama">
+                                <Input type="text" name="Nama" id="searchnama" placeholder="Nama Kafe" />
+                            </CustomInput>
+                        </FormGroup>
+                        <FormGroup>
+                            <CustomInput type="checkbox" id="exampleCustomCheckbox2" label="Alamat">
+                                <Input type="text" name="Alamat" id="searchalamat" placeholder="Lokasi Spesifik Kafe" />
+                            </CustomInput>
+                        </FormGroup>
+                        <FormGroup>
+                            <CustomInput type="checkbox" id="exampleCustomCheckbox3" label="Fasilitas">
+                                <Input type="text" name="Fasilitas" id="searchfasilitas" placeholder="Fasilitas Tertentu" disabled="true"/>
+                            </CustomInput>
+                        </FormGroup>
+                        <FormGroup>
+                            <CustomInput type="checkbox" id="exampleCustomCheckbox4" label="Menu">
+                                <Input type="text" name="Menu" id="searchmenu" placeholder="Makanan atau Minuman" disabled="true"/>
+                            </CustomInput>
+                        </FormGroup>
+                    </ModalBody>
                     <ModalFooter>
-                        <Button color="primary" onClick={toggle}>Do Something</Button>{' '}
-                        <Button color="secondary" onClick={toggle}>Cancel</Button>
+                        <Button color="primary" onClick={toggle}>CARI</Button>{' '}
                     </ModalFooter>
                 </Modal>
             </div>
