@@ -7,12 +7,9 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/" exact >
-          <SearchPage></SearchPage>
-        </Route>
-        <Route path="/result">
-          <Result></Result>
-        </Route>
+        <Route path="/" exact component={SearchPage} ></Route>
+        <Route path="/result/:search" component={(props) => <Result {...props} />}></Route>
+        <Route path="/result" exact component={Result}></Route>
       </Switch>
     </Router>
   );
