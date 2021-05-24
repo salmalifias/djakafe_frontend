@@ -5,26 +5,27 @@ import logo from '../logo/logo.png';
 import more from '../logo/more.png';
 
 function Navbar(props) {
+    const [search, setSearch] = useState();
     const {
         buttonLabel,
         className
     } = props;
 
     const [modal, setModal] = useState(false);
-    const toggle = () => {setModal(!modal)};
+    const toggle = () => { setModal(!modal) };
 
     const [nama, setNama] = useState(true);
-    const checkboxNama = () => {setNama(!nama)};
+    const checkboxNama = () => { setNama(!nama) };
 
     const [alamat, setAlamat] = useState(true);
-    const checkboxAlamat = () => {setAlamat(!alamat)};
+    const checkboxAlamat = () => { setAlamat(!alamat) };
 
     const [fasilitas, setFasilitas] = useState(true);
-    const checkboxFasilitas = () => {setFasilitas(!fasilitas)};
+    const checkboxFasilitas = () => { setFasilitas(!fasilitas) };
 
     const [menu, setMenu] = useState(true);
-    const checkboxMenu = () => {setMenu(!menu)};
-    
+    const checkboxMenu = () => { setMenu(!menu) };
+
     return (
         <div>
             <nav
@@ -49,13 +50,15 @@ function Navbar(props) {
                                         style={{ borderRadius: "40px", fontSize: "15px", padding: "20px", paddingLeft: "50px", width: "800px" }}
                                         aria-label="Large"
                                         aria-describedby="inputGroup-sizing-sm"
-                                        onSubmit={<Link to="/result"></Link>}
+                                        onChange={(e) => setSearch(e.target.value)}
                                     />
-                                    <button type="submit" className="btn-search">
-                                        <i className="fa fa-search"></i>
-                                    </button>
+                                    <Link to={`/result/${search}`}>
+                                        <button type="submit" className="btn-search">
+                                            <i className="fa fa-search"></i>
+                                        </button>
+                                    </Link>
                                     <Button className="btn-more" onClick={toggle} color="">
-                                        <img src={more} alt="more" width="20px" height="20px"/>
+                                        <img src={more} alt="more" width="20px" height="20px" />
                                     </Button>
                                 </div>
                             </form>
@@ -69,22 +72,22 @@ function Navbar(props) {
                     <ModalBody>
                         <FormGroup>
                             <CustomInput type="checkbox" onClick={checkboxNama} id="exampleCustomCheckbox1" label="Nama">
-                                <Input type="text" name="Nama" id="searchnama" placeholder="Nama Kafe" disabled={nama}/>
+                                <Input type="text" name="Nama" id="searchnama" placeholder="Nama Kafe" disabled={nama} />
                             </CustomInput>
                         </FormGroup>
                         <FormGroup>
                             <CustomInput type="checkbox" onClick={checkboxAlamat} id="exampleCustomCheckbox2" label="Alamat">
-                                <Input type="text" name="Alamat" id="searchalamat" placeholder="Lokasi Spesifik Kafe" disabled={alamat}/>
+                                <Input type="text" name="Alamat" id="searchalamat" placeholder="Lokasi Spesifik Kafe" disabled={alamat} />
                             </CustomInput>
                         </FormGroup>
                         <FormGroup>
                             <CustomInput type="checkbox" onClick={checkboxFasilitas} id="exampleCustomCheckbox3" label="Fasilitas">
-                                <Input type="text" name="Fasilitas" id="searchfasilitas" placeholder="Fasilitas Tertentu" disabled={fasilitas}/>
+                                <Input type="text" name="Fasilitas" id="searchfasilitas" placeholder="Fasilitas Tertentu" disabled={fasilitas} />
                             </CustomInput>
                         </FormGroup>
                         <FormGroup>
                             <CustomInput type="checkbox" onClick={checkboxMenu} id="exampleCustomCheckbox4" label="Menu">
-                                <Input type="text" name="Menu" id="searchmenu" placeholder="Makanan atau Minuman" disabled={menu}/>
+                                <Input type="text" name="Menu" id="searchmenu" placeholder="Makanan atau Minuman" disabled={menu} />
                             </CustomInput>
                         </FormGroup>
                     </ModalBody>

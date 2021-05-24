@@ -1,38 +1,105 @@
-import React from 'react'
-import '../assets/css/result.css'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 import '../assets/css/navbar.css'
 import '../assets/css/search.css'
 import Navbar from '../components/Navbar'
+import ResultCard from '../components/ResultCard'
+import axios from 'axios'
+import { ResponsiveEmbed } from 'react-bootstrap'
 
-function ResultPage() {
+function ResultPage(props) {
+    const { search } = props.match.params
+    const [data, setData] = useState([])
+    const [dummy, setDummy] = useState(false)
+
+    useEffect(() => {
+        axios
+            .get(`http://localhost:5000/api/djakafe/?nama=${search}`)
+            .then((response) => {
+                console.log(response)
+                if (response.data.message === 'Data tidak ditemukan') {
+                    setDummy(response.data.data)
+                }
+                else {
+                    setData(response.data.data)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        axios
+            .get(`http://localhost:5000/api/djakafe/?alamat=${search}`)
+            .then((response) => {
+                console.log(response)
+                if (response.data.message === 'Data tidak ditemukan') {
+                    setDummy(response.data.data)
+                }
+                else {
+                    setData(response.data.data)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        axios
+            .get(`http://localhost:5000/api/djakafe/?fasilitas=${search}`)
+            .then((response) => {
+                console.log(response)
+                if (response.data.message === 'Data tidak ditemukan') {
+                    setDummy(response.data.data)
+                }
+                else {
+                    setData(response.data.data)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        axios
+            .get(`http://localhost:5000/api/djakafe/?menu=${search}`)
+            .then((response) => {
+                console.log(response)
+                if (response.data.message === 'Data tidak ditemukan') {
+                    setDummy(response.data.data)
+                }
+                else {
+                    setData(response.data.data)
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [search])
+
     return (
         <div>
-        <Navbar></Navbar>
-        <div className="container-fluid pt-5">
-        <h1 style={{marginLeft:"100px"}}>
-                    Kopi Cerita
-                </h1><br></br>
-                <div className="row">
-                    <div className="col-4" style={{marginLeft:"100px"}}>
-                    <img style={{width:"350px", height:"350px", borderRadius:"20px", boxShadow:"20px"}}class="card-img" src="https://assets-pergikuliner.com/-L-CiR5fUr7YUgmChSPP10LjgNU=/286x192/smart/https://assets-pergikuliner.com/uploads/image/picture/1150812/picture-1542231670.jpg" alt="Upnormal Coffee Roasters" />
-                    </div>
-                    <div className="col-1" style={{fontSize:"15px"}}>
-                        <strong>Alamat</strong><br></br><br></br>
-                        <strong>Rating</strong><br></br><br></br>
-                        <strong>Fasilitas</strong><br></br><br></br>
-                        <strong>Menu</strong><br></br><br></br>
-                    </div>
-                    <div className="col-5" style={{fontSize:"15px"}}>
-                        <div>Jl. Otto Iskandardinata No.125-127, RT.7/RW.8Jl. Otto Iskandardinata</div><br></br>
-                        <div>8/10</div><br></br>
-                        <div>Free Wifi, Outdoor</div><br></br>
-                        <div>Bakso, Mie Ayam, Kangkung</div><br></br>
+            <Navbar></Navbar>
+            <div className="container-fluid pt-5">
+                <h1 style={{ marginLeft: "100px" }}>
+                    Daftar Kafe
+                </h1>
+                <div>
+                    <div className="container cards-container">
+                        <h5>Menampilkan pencarian {search}</h5>
+                        <div>
+                            <div className=" d-flex">
+                                <div className="row">
+                                    {
+                                        data ? data.map(hasil => (
+                                            <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
+                                        )) : dummy
+                                    }
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-        </div>
+            </div>
         </div>
     )
 }
 
 export default ResultPage
+

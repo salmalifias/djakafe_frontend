@@ -32,7 +32,8 @@
     z-index: 100;
     color: #aaa;
     width: 50px;
-    font-size: 18px
+    font-size: 18px;
+    bottom: 5px;
 }
 
 .btn-more{

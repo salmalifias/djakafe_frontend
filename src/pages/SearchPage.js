@@ -7,110 +7,38 @@ import axios from 'axios'
 
 function SearchPage(props) {
     const { search } = props.match.params
-    const [nama, setNama] = useState([])
-    const [alamat, setAlamat] = useState([])
-    const [fasilitas, setFasilitas] = useState([])
-    const [menu, setMenu] = useState([])
+    const [data, setData] = useState([])
 
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/api/djakafe/?nama=${search, nama}`)
+            .get(`http://localhost:5000/api/djakafe`)
             .then((response) => {
                 console.log(response)
-                setNama(response.data.data)
-
+                setData(response.data.data)
             })
             .catch((err) => {
                 console.log(err)
             })
-
-        axios
-            .get(`http://localhost:5000/api/djakafe/?alamat=${search, alamat}`)
-            .then((response) => {
-                console.log(response)
-                setAlamat(response.data.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
-        axios
-            .get(`http://localhost:5000/api/djakafe/?fasilitas=${search, fasilitas}`)
-            .then((response) => {
-                console.log(response)
-                setFasilitas(response.data.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-
-        axios
-            .get(`http://localhost:5000/api/djakafe/?menu=${search, menu}`)
-            .then((response) => {
-                console.log(response)
-                setMenu(response.data.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [search])
+    }, [])
 
     return (
         <div>
             <Navbar></Navbar>
             <div className="container-fluid pt-5">
+                <h1 style={{ marginLeft: "100px" }}>
+                    Daftar Kafe
+                </h1>
                 <div className="container-fluid pt-3 pb-3">
                     <div className="container cards-container">
-                        <h5>Menampilkan pencarian {search}</h5>
-                        <div>
-                            {nama.length || alamat.length || fasilitas.length || menu.length !== 0 ? (
-                                <div>
-                                    <div>
-                                        {nama.length !== 0 ? (
-                                            <div>
-                                                <p>Menampilkan {search} dalam Nama Kafe</p>
-                                                {nama.map((hasil) => (
-                                                    <ResultCard nama={hasil.nama} alamat={hasil.alamat} fasilitas={hasil.fasilitas} menu={hasil.menu}></ResultCard>
-                                                ))}
-                                            </div>
-                                        ) : null}
-                                    </div>
-                                    <div>
-                                        {alamat.length !== 0 ? (
-                                            <div>
-                                                <p>Menampilkan {search} dalam Alamat</p>
-                                                {alamat.map((hasil) => (
-                                                    <ResultCard nama={hasil.nama} alamat={hasil.alamat} fasilitas={hasil.fasilitas} menu={hasil.menu}></ResultCard>
-                                                ))}
-                                            </div>
-                                        ) : null}
-                                    </div>
-                                    <div>
-                                        {fasilitas.length !== 0 ? (
-                                            <div>
-                                                <p>Menampilkan {search} dalam Fasilitas</p>
-                                                {fasilitas.map((hasil) => (
-                                                    <ResultCard nama={hasil.nama} alamat={hasil.alamat} fasilitas={hasil.fasilitas} menu={hasil.menu}></ResultCard>
-                                                ))}
-                                            </div>
-                                        ) : null}
-                                    </div>
-                                    <div>
-                                        {menu.length !== 0 ? (
-                                            <div>
-                                                <p>Menampilkan {search} dalam Menu</p>
-                                                {menu.map((hasil) => (
-                                                    <ResultCard nama={hasil.nama} alamat={hasil.alamat} fasilitas={hasil.fasilitas} menu={hasil.menu}></ResultCard>
-                                                ))}
-                                            </div>
-                                        ) : null}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div>
-                                    <p>Data tidak ditemukan</p>
-                                </div>
-                            )}
+                        <div className="d-flex">
+                            <div className="row">
+                                {data.length !== 0 ? (
+                                        data.map((hasil) => (
+                                            <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
+                                        ))
+                                    
+                                ) : null}
+                            </div>
                         </div>
                     </div>
                 </div>
