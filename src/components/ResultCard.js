@@ -11,7 +11,7 @@ function ResultCard(props) {
                         <div class="grid mx-2 mt-4">
                             <div class="grid-item">
                                 <Link to={`/detail/${props.id}`}>
-                                    <div class="card">
+                                    <div class="card" style={{height:"350px"}}>
                                         <img class="card-img" src={props.foto} alt={props.nama} />
                                         <div class="card-content">
                                             <h1 class="card-header">{props.nama}</h1>

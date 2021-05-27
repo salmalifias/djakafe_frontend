@@ -33,7 +33,7 @@ useEffect(() => {
                 </h1><br></br>
                 <div className="row">
                     <div className="col-4" style={{marginLeft:"100px"}}>
-                    <img style={{width:"350px", height:"350px", borderRadius:"20px", boxShadow:"20px"}}class="card-img" src="https://assets-pergikuliner.com/-L-CiR5fUr7YUgmChSPP10LjgNU=/286x192/smart/https://assets-pergikuliner.com/uploads/image/picture/1150812/picture-1542231670.jpg" alt="Upnormal Coffee Roasters" />
+                    <img style={{width:"350px", height:"350px", borderRadius:"20px", boxShadow:"20px"}}class="card-img" src={detail.urlFoto} />
                     </div>
                     <div className="col-1" style={{fontSize:"15px"}}>
                         <strong>Alamat</strong><br></br><br></br>

@@ -28,17 +28,15 @@ function SearchPage(props) {
                 <h1 style={{ marginLeft: "100px" }}>
                     Daftar Kafe
                 </h1>
-                <div className="container-fluid pt-3 pb-3">
-                    <div className="container cards-container">
-                        <div className="d-flex">
-                            <div className="row">
-                                {data.length !== 0 ? (
-                                        data.map((hasil) => (
-                                            <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
-                                        ))
-                                    
-                                ) : null}
-                            </div>
+                <div className="container cards-container ">
+                    <div>
+                        <div className="row d-flex justify-content-around">
+                            {data.length !== 0 ? (
+                                data.map((hasil) => (
+                                    <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
+                                ))
+
+                            ) : null}
                         </div>
                     </div>
                 </div>
