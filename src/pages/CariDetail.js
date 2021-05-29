@@ -30,12 +30,11 @@ function ResultPage(props) {
         <div>
             <Navbar></Navbar>
             <div className="container-fluid pt-5">
-                <h1 style={{ marginLeft: "100px" }}>
+                <h1 style={{ marginLeft: "10%" }}>
                     Daftar Kafe
                 </h1>
                 <div>
                     <div className="container cards-container">
-                        <h5>Menampilkan pencarian {search}</h5>
                         <div>
                             <div className=" d-flex">
                                 <div className="row">

@@ -36,7 +36,7 @@ function Navbar(props) {
 
   return (
     <div>
-      <nav className="navbar navbar-desktop navbar-expand" style={{ zIndex: "2" }} >
+      <nav className="navbar navbar-desktop navbar-expand" style={{ zIndex: "1" }} >
         <div className="d-flex collapse navbar-collapse" id="navbarTogglerDemo01">
           <ul className=" navbar-nav justify-content-center d-flex align-items-center">
             <li className="nav-item ">
@@ -44,15 +44,14 @@ function Navbar(props) {
                 <img src={logo} alt="DjaKafe" />
               </Link>
             </li>
-            <li className="nav-item ">
-
+            <li className="nav-item col-lg-8 col-md-8 col-sm-8">
               <form className="form-inline w-100 my-lg-0">
                 <div className="form-group w-100 input-group has-search">
                   <input
                     type="text"
                     className="form-control"
                     placeholder="Cari Kafe"
-                    style={{ borderRadius: "40px", fontSize: "15px", padding: "20px", paddingLeft: "50px", width: "800px" }}
+                    style={{ borderRadius: "40px", fontSize: "15px", padding: "20px", paddingLeft: "6%"}}
                     aria-label="Large"
                     aria-describedby="inputGroup-sizing-sm"
                     onChange={(e) => setSearch(e.target.value)}

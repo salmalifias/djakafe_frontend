@@ -77,22 +77,18 @@ function ResultPage(props) {
         <div>
             <Navbar></Navbar>
             <div className="container-fluid pt-5">
-                <h1 style={{ marginLeft: "100px" }}>
+                <h1 style={{ marginLeft: "10%" }}>
                     Daftar Kafe
                 </h1>
-                <div>
-                    <div className="container cards-container">
-                        <h5>Menampilkan pencarian {search}</h5>
-                        <div>
-                            <div className=" d-flex">
-                                <div className="row">
-                                    {
-                                        data ? data.map(hasil => (
-                                            <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
-                                        )) : dummy
-                                    }
-                                </div>
-                            </div>
+                <div className="container cards-container ">
+                    <div>
+                        <div className="row d-flex justify-content-around">
+                            {data.length !== 0 ? (
+                                data.map((hasil) => (
+                                    <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
+                                ))
+
+                            ) : null}
                         </div>
                     </div>
                 </div>

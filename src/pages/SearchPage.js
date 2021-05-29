@@ -25,7 +25,7 @@ function SearchPage(props) {
         <div>
             <Navbar></Navbar>
             <div className="container-fluid pt-5">
-                <h1 style={{ marginLeft: "100px" }}>
+                <h1 style={{ marginLeft: "10%" }}>
                     Daftar Kafe
                 </h1>
                 <div className="container cards-container ">
