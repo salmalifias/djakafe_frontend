@@ -10,7 +10,7 @@ import axios from 'axios'
 function DetailPage(props) {
     const { id } = props.match.params
     const [detail, setDetail] = useState(null)
-    const [fasilitas, setFasilitas] = useState([])
+    // const [fasilitas, setFasilitas] = useState([])
     const [dummy, setDummy] = useState(false)
 
     useEffect(() => {
@@ -23,16 +23,17 @@ function DetailPage(props) {
             .catch((err) => {
                 console.log(err)
             })
-        axios
-            .get(`http://localhost:5000/api/recommendation/djakafe/?fasilitas=${detail.fasilitas}`)
-            .then((response) => {
-                console.log(response)
-                setFasilitas(response.data.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [id, detail.fasilitas])
+        // axios
+        //     .get(`http://localhost:5000/api/recommendation/djakafe/?fasilitas=${detail.fasilitas}`)
+        //     .then((response) => {
+        //         console.log(response)
+        //         setFasilitas(response.data.data)
+        //     })
+        //     .catch((err) => {
+        //         console.log(err)
+        //     })
+    }, [id]) 
+    // detail.fasilitas
 
     return (
         <div>
@@ -92,7 +93,7 @@ function DetailPage(props) {
                                         </tr>
                                     </table>
                                 </div>
-                                <id style={{ fontSize: "20px", marginLeft: "100px" }}>
+                                {/* <id style={{ fontSize: "20px", marginLeft: "100px" }}>
                                     <br></br><br></br><strong>Kafe Dengan Fasilitas Serupa</strong>
                                 </id>
                                 <div className="row">
@@ -118,7 +119,7 @@ function DetailPage(props) {
                                             ))
                                         }
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div> : null
                 }
