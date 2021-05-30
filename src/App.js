@@ -12,7 +12,7 @@ function App() {
         <Route path="/" exact component={SearchPage} ></Route>
         <Route path="/result/:search" component={(props) => <Result {...props} />}></Route>
         <Route path="/detail/:id" component={(props) => <DetailPage {...props} />}></Route>
-        <Route path="/resultDetail" component={(props) => <CariDetail {...props} />}></Route>
+        <Route path="/results" component={(props) => <CariDetail {...props} />}></Route>
       </Switch>
     </Router>
   );

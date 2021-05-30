@@ -4,7 +4,6 @@ import '../assets/css/search.css'
 import Navbar from '../components/Navbar'
 import ResultCard from '../components/ResultCard'
 import axios from 'axios'
-import { ResponsiveEmbed } from 'react-bootstrap'
 
 function ResultPage(props) {
     const { search } = props.match.params
@@ -88,7 +87,7 @@ function ResultPage(props) {
                                     <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
                                 ))
 
-                            ) : null}
+                            ) : (<div><img style={{paddingTop:"100px"}} src="https://legacymuaythaibogor.com/themes/yellow/img/ic_notfound.png"></img></div>)}
                         </div>
                     </div>
                 </div>

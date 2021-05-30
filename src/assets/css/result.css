@@ -15,6 +15,10 @@
     width: 100%;
 } */
 
+a{
+    text-decoration: none !important;
+}
+
 .has-search .form-control {
     padding-left: 5rem;
 }

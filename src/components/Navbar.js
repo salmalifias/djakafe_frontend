@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CustomInput, Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Row, Form, FormGroup, Label, Input } from 'reactstrap';
+import { CustomInput, Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import logo from '../logo/logo.png';
 import more from '../logo/more.png';
@@ -30,9 +30,9 @@ function Navbar(props) {
   const [menu, setMenu] = useState(true);
   const checkboxMenu = () => { setMenu(!menu) };
 
-  const onSubmitHandler = ()=> {
-    window.location.href = "/resultDetail?nama=" + snama + "&alamat=" + salamat + "&fasilitas=" + sfasilitas + "&menu=" + smenu
-  } 
+  const onSubmitHandler = () => {
+    window.location.href = "/results/?nama=" + snama + "&alamat=" + salamat + "&fasilitas=" + sfasilitas + "&menu=" + smenu
+  }
 
   return (
     <div>
@@ -50,8 +50,8 @@ function Navbar(props) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Cari Kafe"
-                    style={{ borderRadius: "40px", fontSize: "15px", padding: "20px", paddingLeft: "6%"}}
+                    placeholder="Cari Kafe (Nama/Alamat/Fasilitas/Menu)"
+                    style={{ borderRadius: "40px", fontSize: "15px", padding: "20px", paddingLeft: "6%" }}
                     aria-label="Large"
                     aria-describedby="inputGroup-sizing-sm"
                     onChange={(e) => setSearch(e.target.value)}
@@ -96,7 +96,7 @@ function Navbar(props) {
             </FormGroup>
           </ModalBody>
           <ModalFooter>
-              <Button color="primary" onClick={onSubmitHandler}>CARI</Button>{' '}
+            <Button color="primary" onClick={onSubmitHandler}>CARI</Button>{' '}
           </ModalFooter>
         </Modal>
       </div>
