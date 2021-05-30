@@ -15,14 +15,19 @@
 
 ### Anggota Kelompok
 * Salma Alifia Shafira - 140810180058
-* Muhammad Risqullah Sudanta Gorao - 140810180066
+* Muhammad Risqullah Sudanta Gorau - 140810180066
  
 ### Projek Dibuat Dengan
 * [React JS]
 * [Express JS]
 * [Jena Fuseki]
 
-### Setup Frontend Service
+### Back-End GitHub
+```sh
+https://github.com/rsudanta/djakafe-backend
+```
+
+### Setup Front-End Service
 1. Clone https://github.com/salmalifias/djakafe_frontend
 ```sh
 git clone https://github.com/salmalifias/djakafe_frontend
@@ -42,7 +47,7 @@ npm run serve
 5. The service will be run on [http://localhost:3000](http://localhost:3000)
 
 ## Usage
-1. Open frontend service 
+1. Open Front-End service 
 > local: [http://localhost:3000](http://localhost:3000) <br>
 2. Lakukan Pencarian melalui search bar yang tersedia pada navbar.
 3. Pilih kafe yang ingin ditemukan.
