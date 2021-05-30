@@ -9,8 +9,9 @@ import axios from 'axios'
 
 function DetailPage(props) {
     const { id } = props.match.params
-    const [detail, setDetail] = useState(null)
-    // const [fasilitas, setFasilitas] = useState([])
+    // const [detail, setDetail] = useState(null)
+    const [data, setData] = useState(false)
+    const [fasilitas, setFasilitas] = useState([])
     const [dummy, setDummy] = useState(false)
 
     useEffect(() => {
@@ -18,45 +19,45 @@ function DetailPage(props) {
             .get(`http://localhost:5000/api/djakafe/${id}`)
             .then((response) => {
                 console.log(response.data)
-                setDetail(response.data.data)
+                setData(response.data.data)
             })
             .catch((err) => {
                 console.log(err)
             })
-        // axios
-        //     .get(`http://localhost:5000/api/recommendation/djakafe/?fasilitas=${detail.fasilitas}`)
-        //     .then((response) => {
-        //         console.log(response)
-        //         setFasilitas(response.data.data)
-        //     })
-        //     .catch((err) => {
-        //         console.log(err)
-        //     })
-    }, [id]) 
-    // detail.fasilitas
+        axios
+            .get(`http://localhost:5000/api/recommendation/?fasilitas=${data.fasilitas}`)
+            .then((response) => {
+                console.log(response)
+                setFasilitas(response.data.data)
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [id, data.fasilitas])
 
     return (
         <div>
             <Navbar></Navbar>
             <div className="container-fluid pt-5">
                 {
-                    detail ?
+                    data ?
                         <div>
-                            <h1 style={{ marginLeft: "100px" }}>
-                                {detail.nama}
+                            <h1 style={{ marginLeft: "10%" }}>
+                                {data.nama}
                             </h1><br></br>
                             <div className="row">
                                 <div className="d-flex flex-wrap w-100">
                                     <div>
-                                        <img style={{ width: "370px", height: "350px", borderRadius: "20px", marginLeft: "100px" }} src={detail.urlFoto} alt="" />
+                                        <img style={{ width: "370px", height: "350px", borderRadius: "20px", marginLeft: "35%" }} src={data.urlFoto} alt="" />
                                     </div>
+                                    <table className="col-1"/>
                                     <table className="col-6" style={{ fontSize: "15px", marginLeft: "50px" }}>
                                         <tr>
                                             <td style={{ width: "100px" }}>
                                                 <strong>Nama</strong>
                                             </td>
                                             <td style={{ width: "600px" }}>
-                                                {detail.nama}
+                                                {data.nama}
                                             </td>
                                         </tr>
                                         <tr>
@@ -64,7 +65,7 @@ function DetailPage(props) {
                                                 <strong>Alamat</strong>
                                             </td>
                                             <td style={{ width: "600px" }}>
-                                                {detail.alamat}
+                                                {data.alamat}
                                             </td>
                                         </tr>
                                         <tr>
@@ -72,7 +73,7 @@ function DetailPage(props) {
                                                 <strong>Rating</strong>
                                             </td>
                                             <td style={{ width: "600px" }}>
-                                                {detail.rating}
+                                                {data.rating}
                                             </td>
                                         </tr>
                                         <tr>
@@ -80,7 +81,7 @@ function DetailPage(props) {
                                                 <strong>Fasilitas</strong>
                                             </td>
                                             <td style={{ width: "600px" }}>
-                                                {detail.fasilitas}
+                                                {data.fasilitas}
                                             </td>
                                         </tr>
                                         <tr>
@@ -88,26 +89,26 @@ function DetailPage(props) {
                                                 <strong>Menu</strong>
                                             </td>
                                             <td style={{ width: "600px" }}>
-                                                {detail.menu}
+                                                {data.menu}
                                             </td>
                                         </tr>
                                     </table>
                                 </div>
-                                {/* <id style={{ fontSize: "20px", marginLeft: "100px" }}>
+                                <id style={{ fontSize: "20px", marginLeft: "10%" }}>
                                     <br></br><br></br><strong>Kafe Dengan Fasilitas Serupa</strong>
                                 </id>
                                 <div className="row">
                                     <div className="result-card flex-wrap d-flex justify-content-center w-100">
                                         {
                                             fasilitas.map(props => (
-                                                props.id !== detail.id ?
+                                                props.id !== data.id ?
                                                     <div>
                                                         <div className="container cards-container">
                                                             <div>
-                                                                <div className=" d-flex">
-                                                                    <div className="row">
+                                                                <div>
+                                                                    <div className="row d-flex justify-content-around">
                                                                         {
-                                                                            detail ? detail.map(hasil => (
+                                                                            data ? fasilitas.map(hasil => (
                                                                                 <ResultCard id={hasil.id} foto={hasil.urlFoto} nama={hasil.nama} alamat={hasil.alamat} ></ResultCard>
                                                                             )) : dummy
                                                                         }
@@ -119,7 +120,7 @@ function DetailPage(props) {
                                             ))
                                         }
                                     </div>
-                                </div> */}
+                                </div>
                             </div>
                         </div> : null
                 }

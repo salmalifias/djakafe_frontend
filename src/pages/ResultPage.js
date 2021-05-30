@@ -80,7 +80,7 @@ function ResultPage(props) {
                 <h1 style={{ marginLeft: "10%" }}>
                     Daftar Kafe
                 </h1>
-                <div className="container cards-container ">
+                <div className="container cards-container">
                     <div>
                         <div className="row d-flex justify-content-around">
                             {data.length !== 0 ? (
