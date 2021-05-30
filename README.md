@@ -1,8 +1,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/atjhoendz/qrary-semantic-frontend">
-    <img src="public/img/icons/android-chrome-maskable-512x512.png" alt="Logo" width="100" height="100">
+  <a href="https://github.com/salmalifias/djakafe_frontend">
+    <img src="https://github.com/salmalifias/djakafe_frontend/blob/main/src/logo/logo.png" alt="Logo" width="100" height="100">
   </a>
 
   <h2 align="center">DjaKafe - Front-End</h2>
